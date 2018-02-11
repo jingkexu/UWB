@@ -497,8 +497,7 @@ int main(void)
 
 		led_off(LED_ALL);
     port_EnableEXT_IRQ(); //enable ScenSor IRQ before starting
-//    memset(dataseq1, ' ', LCD_BUFF_LEN);
-//		
+	
  	while(1)
 	{
 
