@@ -135,7 +135,14 @@ extern "C" {
 //Thus the ranging exchange will take either 28 ms for 110 kbps and 5 ms for 6.81 Mbps.
 //NOTE: the above times are for 110k rate with 64 symb non-standard SFD and 1024 preamble length
 
-typedef enum instanceModes{LISTENER, TAG, ANCHOR, ANCHOR_RNG, NUM_MODES} INST_MODE;
+typedef enum instanceModes
+{
+LISTENER, // 监听
+TAG,      // 标签
+ANCHOR,   // 基站
+ANCHOR_RNG,
+NUM_MODES
+}INST_MODE;
 
 //Listener = in this mode, the instance only receives frames, does not respond
 //Tag = Exchanges DecaRanging messages (Poll-Response-Final) with Anchor and enabling Anchor to calculate the range between the two instances
@@ -152,11 +159,11 @@ typedef enum inst_states
 {
     TA_INIT, //0
 
-    TA_TXE_WAIT,                //1 - state in which the instance will enter sleep (if ranging finished) or proceed to transmit a message
-    TA_TXPOLL_WAIT_SEND,        //2 - configuration and sending of Poll message
-    TA_TXFINAL_WAIT_SEND,       //3 - configuration and sending of Final message
-    TA_TXRESPONSE_WAIT_SEND,    //4 - a place holder - response is sent from call back
-    TA_TX_WAIT_CONF,            //6 - confirmation of TX done message
+    TA_TXE_WAIT,                //1 - 将进入睡眠状态的实例(如果测距完成)或继续发送一条消息 state in which the instance will enter sleep (if ranging finished) or proceed to transmit a message
+    TA_TXPOLL_WAIT_SEND,        //2 - 配置和发送Poll消息     configuration and sending of Poll message
+    TA_TXFINAL_WAIT_SEND,       //3 - 配置和发送Final消息 configuration and sending of Final message
+    TA_TXRESPONSE_WAIT_SEND,    //4 - 一个地方持有人-响应发送回应用 a place holder - response is sent from call back
+    TA_TX_WAIT_CONF,            //6 - TX完成消息的确认 confirmation of TX done message
 
     TA_RXE_WAIT,                //7
     TA_RX_WAIT_DATA,            //8

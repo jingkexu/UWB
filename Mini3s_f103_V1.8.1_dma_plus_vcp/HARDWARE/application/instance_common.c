@@ -1418,7 +1418,6 @@ int instance_run(void)
     int done = INST_NOT_DONE_YET;
     int message = instance_peekevent(); //get any of the received events from ISR
 
-
 	while(done == INST_NOT_DONE_YET)
 	{
 		//int state = instance_data[instance].testAppState;
@@ -1427,8 +1426,6 @@ int instance_run(void)
 		//we've processed message
 		message = 0;
 	}
-
-
 
     if(done == INST_DONE_WAIT_FOR_NEXT_EVENT_TO) //we are in RX and need to timeout (Tag needs to send another poll if no Rx frame)
     {
